@@ -1,0 +1,7 @@
+.wrapper {
+	width: 800px;
+	height: 600px;
+	padding: 10px;
+	display: flex;
+	margin: 0 auto;
+}

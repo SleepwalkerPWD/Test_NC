@@ -1,0 +1,22 @@
+body {
+	padding: 10px;
+	background: #666666;
+}
+
+
+/*Центрирование*/
+.parent {
+	width: 500px;
+	height: 300px;
+	background: white;
+	display: flex;
+	align-items: center;
+	
+}
+
+.child {
+	width: 100px;
+	height: 100px;
+	background: black;
+	margin: 0 auto;
+}
