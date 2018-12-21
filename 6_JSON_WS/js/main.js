@@ -15,7 +15,7 @@ let getJSONws = () => {
 }
 
 
-//Асинхронная функция
+//Async/await функция
 async function start() {
     let json = await getJSONws();
 
