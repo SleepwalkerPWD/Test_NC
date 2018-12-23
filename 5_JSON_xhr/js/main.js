@@ -1,3 +1,4 @@
+//Адрес сервера
 const url = 'http://localhost:8000';
 
 //Получение JSON через XHR
@@ -20,7 +21,7 @@ let loadWithXHR = () => {
 };
 
 
-////Async/await функция
+//Async/await функция
 async function start() {
     let json = await loadWithXHR();
     
