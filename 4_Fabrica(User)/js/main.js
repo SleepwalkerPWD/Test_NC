@@ -15,7 +15,7 @@ class User {
 
 }
 
-let user1 = new User('noramlGuy');
+let user1 = new User('normalGuy');
 let user2 = new User('administrator');
 
 console.log(user1);
