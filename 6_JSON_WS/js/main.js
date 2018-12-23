@@ -1,14 +1,16 @@
-//Порт WS сервера
-let wsock = new WebSocket('ws://localhost:5000/');
-
 //Получение JSON через WS
 let getJSONws = () => {
     return new Promise(resolve => {
+        //Порт WS сервера
+        let wsock = new WebSocket('ws://localhost:5000/');
         wsock.onopen = () => {
+
             wsock.send("give_json");
             wsock.onmessage = (event) => {
+
                 wsock.close();
                 resolve(JSON.parse(event.data));
+
             };
         };
     });
@@ -19,6 +21,7 @@ let getJSONws = () => {
 async function start() {
     let json = await getJSONws();
 
+    //Вывод JSON на страницу HTML
     json.categories.forEach(function(item, i, array){
          for (let key in item){
                 let div = document.createElement('div');

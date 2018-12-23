@@ -20,19 +20,39 @@ wsServer.on('connection', webs => {
         }
     })
 });
-
-console.log(`WebSocket на 5000 порту \n`);
-
+console.log(`WebSocket Server на 5000 порту \n`);
 
 
 //Server
-let server = http.createServer(function (req, res) {
-	res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
-	res.end(JSON.stringify(jsonData, null, 2));
-});
+let port = 8000;
 
+let server = http.createServer();
+server.on('request', request);
+server.listen(port);
+function request(request, response) {
+    let store = 'jsonData';
 
-server.listen(3000, '127.0.0.1');
-console.log('Сервер на 3000 порту');
+    request.on('data', function(data) 
+    {
+        store += data;
+    });
 
-// console.log(jsonData);
+    request.on('end', function() 
+    {  console.log(store);
+        response.setHeader("Content-Type", "application/json");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.end(JSON.stringify(jsonData))
+    });
+ }  
+ console.log('Сервер на 8000 порту');
+
+// let server = http.createServer(function (req, res) {
+			
+// 	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+// 	res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
+// 	res.end(JSON.stringify(jsonData));
+
+// });
+
+// server.listen(3000, '127.0.0.1');
+// console.log('Сервер на 3000 порту');
